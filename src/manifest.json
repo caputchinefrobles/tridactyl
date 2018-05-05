@@ -25,10 +25,10 @@
             ],
             "css": [
                 "static/cleanslate.css",
-                "static/content.css",
-                "static/content-dark.css",
-                "static/hint.css",
-                "static/viewsource.css"
+                "static/themes/default/content.css",
+                "static/themes/default/hint.css",
+                "static/themes/default/viewsource.css",
+                "static/themes/dark/content.css"
             ],
             "run_at": "document_start",
             "match_about_blank": true

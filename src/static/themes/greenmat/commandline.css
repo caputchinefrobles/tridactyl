@@ -1,0 +1,59 @@
+:root.greenmat {
+  --foreground: #00eb00;
+  --foreground-bright: #33ff66;
+  --background: #001500;
+  --background-bright: #002000;
+  --background-completion-area: black;
+}
+
+:root.greenmat input {
+  color: var(--foreground-bright);
+  font-weight: bold;
+  background: var(--background);
+
+}
+
+:root.greenmat #completions {
+  color: var(--foreground);
+  background: var(--background-completion-area);
+  opacity:0.75;
+}
+
+:root.greenmat #completions .sectionHeader {
+  color: var(--foreground-bright);
+  font-weight: bold;
+  background: var(--background-bright);
+  border-left: 10px solid var(--background-completion-area);
+  border-top: 5px solid var(--background-completion-area);
+  border-bottom: 5px solid var(--background-completion-area);
+}
+
+:root.greenmat table {
+  border-collapse: collapse;
+}
+
+:root.greenmat #completions .optionContainer tr{
+  color: var(--foreground);
+}
+
+:root.greenmat .option:not(.focused) .url {
+  color: var(--foreground);
+  text-decoration: underline;
+  background: transparent;
+}
+
+:root.greenmat #completions .focused{
+  border-top: 1px solid yellow;
+  border-bottom: 1px solid yellow;
+}
+
+:root.greenmat #completions .focused .prefix{
+   color:black;
+   background-color: yellow;
+}
+
+:root.greenmat #completions .focused, :root.greenmat .focused .url{
+  color: var(--foreground);
+  text-decoration: underline;
+  background: none;
+}
