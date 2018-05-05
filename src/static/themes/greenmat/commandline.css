@@ -23,9 +23,7 @@
   color: var(--foreground-bright);
   font-weight: bold;
   background: var(--background-bright);
-  border-left: 10px solid var(--background-completion-area);
-  border-top: 5px solid var(--background-completion-area);
-  border-bottom: 5px solid var(--background-completion-area);
+  border: 10px solid var(--background-completion-area);
 }
 
 :root.greenmat table {

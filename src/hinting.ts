@@ -218,21 +218,20 @@ class Hint {
     // If not, do a state machine.
     set hidden(hide: boolean) {
         this.flag.hidden = hide
+        var themeconf = config.get("theme")
         if (hide) {
             this.focused = false
             this.target.classList.remove("TridactylHintElem")
-            if (config.get("theme") === "dark") {
+            if (themeconf != "default")
                 document
                     .querySelector(":root")
-                    .classList.remove("TridactylThemeDark")
-            }
+                    .classList.remove("TridactylTheme" + themeconf)
         } else {
             this.target.classList.add("TridactylHintElem")
-            if (config.get("theme") === "dark") {
+            if (themeconf != "default")
                 document
                     .querySelector(":root")
-                    .classList.add("TridactylThemeDark")
-            }
+                    .classList.add("TridactylTheme" + themeconf)
         }
     }
 

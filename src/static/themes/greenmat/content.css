@@ -1,18 +1,18 @@
-:root.TridactylThemeDark span.TridactylHint {
+:root.TridactylThemegreenmat span.TridactylHint {
     color: white !important;
     background-color: #204e8a !important;
 }
 
-:root.TridactylThemeDark .TridactylHintElem, :root.TridactylThemeDark .TridactylHintActive {
+:root.TridactylThemegreenmat .TridactylHintElem, :root.TridactylThemegreenmat .TridactylHintActive {
     color: #333 !important !important;
 }
 
-:root.TridactylThemeDark .TridactylHintElem {
+:root.TridactylThemegreenmat .TridactylHintElem {
     background-color: rgba(13, 31, 54, 0.25) !important;
     outline: 1px solid #204e8a !important;
 }
 
-:root.TridactylThemeDark .TridactylHintActive {
+:root.TridactylThemegreenmat .TridactylHintActive {
     background-color: #88FF00 !important;
     outline: 1px solid #000 !important;
 }

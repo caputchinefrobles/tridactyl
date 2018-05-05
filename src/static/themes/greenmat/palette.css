@@ -1,0 +1,7 @@
+:root.greenmat {
+	--tridactyl-fg-color: #00eb00;
+	--tridactyl-fg-bright: #33ff66;
+	--tridactyl-bg-color: #001500;
+	--tridactyl-bg-color-bright: #002000;
+	--tridactyl-bg-completion-area: black;
+}

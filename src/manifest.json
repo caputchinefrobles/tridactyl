@@ -28,7 +28,9 @@
                 "static/themes/default/content.css",
                 "static/themes/default/hint.css",
                 "static/themes/default/viewsource.css",
-                "static/themes/dark/content.css"
+                "static/themes/dark/content.css",
+                "static/themes/greenmat/palette.css",
+                "static/themes/greenmat/content.css"
             ],
             "run_at": "document_start",
             "match_about_blank": true
