@@ -1,6 +1,14 @@
+:root{
+  --foreground: #00eb00;
+  --foreground-bright: #33ff66;
+  --background: #001500;
+  --background-bright: #002000;
+  --background-completion-area: black;
+}
+
 :root.TridactylThemegreenmat span.TridactylHint {
-    color: white !important;
-    background-color: #204e8a !important;
+    color: var(--foreground)!important;
+    background-color: var(--background) !important;
 }
 
 :root.TridactylThemegreenmat .TridactylHintElem, :root.TridactylThemegreenmat .TridactylHintActive {
@@ -8,8 +16,8 @@
 }
 
 :root.TridactylThemegreenmat .TridactylHintElem {
-    background-color: rgba(13, 31, 54, 0.25) !important;
-    outline: 1px solid #204e8a !important;
+    background-color: rgba(13, 13, 13, 0.25) !important;
+    outline: 1px solid var(--background) !important;
 }
 
 :root.TridactylThemegreenmat .TridactylHintActive {
