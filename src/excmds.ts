@@ -54,6 +54,7 @@
     - Pressing `ZZ` will close all tabs and windows, but it will only "save"
       them if your about:preferences are set to "show your tabs and windows
       from last time"
+    - Change theme with `colours default|dark|greenmat|shydactyl`
 
     There are some caveats common to all webextension vimperator-alikes:
 
@@ -1894,8 +1895,11 @@ export function searchsetkeyword(keyword: string, url: string) {
 */
 //#background
 export function set(key: string, ...values: string[]) {
-    if (!key || !values[0]) {
-        throw "Both key and value must be provided!"
+    if (!key) {
+        throw "Key must be provided!"
+    } else if (!values[0]) {
+        get(key)
+        return
     }
 
     const target = key.split(".")
