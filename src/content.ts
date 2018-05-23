@@ -143,3 +143,39 @@ config.getAsync("modeindicator").then(mode => {
         if (config.get("modeindicator") !== "true") statusIndicator.remove()
     })
 })
+
+function checkscroll(tabId) {
+    config.getAsync("smoothscroll").then(smooth => {
+        if (smooth === "true") {
+            if (tabId != undefined)
+                webext.browserBg.tabs.insertCSS(tabId, {
+                    code: "body{scroll-behavior: smooth;}",
+                })
+            else
+                webext.browserBg.tabs.insertCSS({
+                    code: "body{scroll-behavior: smooth;}",
+                })
+        } else {
+            if (tabId != undefined)
+                webext.browserBg.tabs.removeCSS(tabId, {
+                    code: "body{scroll-behavior: smooth;}",
+                })
+            else
+                webext.browserBg.tabs.removeCSS({
+                    code: "body{scroll-behavior: smooth;}",
+                })
+        }
+    })
+}
+
+browser.tabs.onActivated.addListener(activeInfo => {
+    checkscroll(activeInfo.tabId)
+})
+
+browser.storage.onChanged.addListener(changes => {
+    if ("userconfig" in changes) {
+        checkscroll(undefined)
+    }
+})
+
+checkscroll(undefined)
