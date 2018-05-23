@@ -144,38 +144,39 @@ config.getAsync("modeindicator").then(mode => {
     })
 })
 
-function checkscroll(tabId) {
+async function checkscroll() {
+    let id = await webext.activeTabId()
     config.getAsync("smoothscroll").then(smooth => {
-        if (smooth === "true") {
-            if (tabId != undefined)
-                webext.browserBg.tabs.insertCSS(tabId, {
+        try {
+            if (smooth === "true") {
+                logger.debug("Inserting smooth scroll CSS...")
+                webext.browserBg.tabs.insertCSS(id, {
                     code: "body{scroll-behavior: smooth;}",
                 })
-            else
-                webext.browserBg.tabs.insertCSS({
+            } else {
+                logger.debug("Removing smooth scroll CSS...")
+                webext.browserBg.tabs.removeCSS(id, {
                     code: "body{scroll-behavior: smooth;}",
                 })
-        } else {
-            if (tabId != undefined)
-                webext.browserBg.tabs.removeCSS(tabId, {
-                    code: "body{scroll-behavior: smooth;}",
-                })
-            else
-                webext.browserBg.tabs.removeCSS({
-                    code: "body{scroll-behavior: smooth;}",
-                })
+            }
+        } catch (e) {
+            logger.error("Couldn't set smooth scroll behavior: ", e)
         }
     })
 }
 
-browser.tabs.onActivated.addListener(activeInfo => {
-    checkscroll(activeInfo.tabId)
-})
-
 browser.storage.onChanged.addListener(changes => {
     if ("userconfig" in changes) {
-        checkscroll(undefined)
+        checkscroll()
     }
 })
 
-checkscroll(undefined)
+logger.debug("First checkscroll...")
+checkscroll()
+
+messaging.addListener(
+    "content_content",
+    messaging.attributeCaller({
+        checkscroll,
+    }),
+)

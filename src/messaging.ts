@@ -3,6 +3,7 @@ import Logger from "./logging"
 const logger = new Logger("messaging")
 
 export type TabMessageType =
+    | "content_content"
     | "excmd_content"
     | "keydown_content"
     | "commandline_content"

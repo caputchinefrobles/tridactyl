@@ -4,6 +4,7 @@ import { isSimpleKey } from "./keyseq"
 import state from "./state"
 import { repeat } from "./.excmds_background.generated"
 import Logger from "./logging"
+import { messageActiveTab } from "./messaging"
 
 import { parser as exmode_parser } from "./parsers/exmode"
 import { parser as hintmode_parser } from "./hinting_background"
@@ -125,4 +126,7 @@ browser.webNavigation.onBeforeNavigate.addListener(async function(details) {
         state.mode = "normal"
     }
 })
-browser.tabs.onActivated.addListener(() => (state.mode = "normal"))
+browser.tabs.onActivated.addListener(() => {
+    state.mode = "normal"
+    messageActiveTab("content_content", "checkscroll")
+})
